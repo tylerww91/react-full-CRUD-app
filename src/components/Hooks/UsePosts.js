@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { getPosts } from "../../services/posts.js";
+import { useEffect, useState } from 'react';
+import { getPosts } from '../../services/posts.js';
 
 export function usePosts() {
   const [posts, setPosts] = useState([]);
@@ -11,13 +11,13 @@ export function usePosts() {
       try {
         const data = await getPosts();
         setPosts(data);
-        setLoading(false)
+        setLoading(false);
       } catch (e) {
         setError(e.message);
         setLoading(false);
       }
     };
-    fetchData(data);
+    fetchData();
   }, []);
 
   return { posts, error, loading };
